@@ -1,8 +1,8 @@
 from experta import *
 
 class MarketFacts(Fact):
-    pass
 
+    pass
 
 class FxRuleEngine(KnowledgeEngine):
 
