@@ -34,7 +34,6 @@ def show_network(G):
     for src, tgt, data in G.edges(data=True):
         print(f"{src} → {tgt} [{data['relation']}]")
 
-# Додатковий метод для демонстрації впливу на валюту
 def analyze_indicator(G, indicator, value):
     print(f"\nАналіз за індикатором: {indicator} = {value}")
     if indicator in ["Inflation", "Risk"]:
