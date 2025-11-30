@@ -1,11 +1,9 @@
 from experta import *
 
 class MarketFacts(Fact):
-
     pass
 
 class FxRuleEngine(KnowledgeEngine):
-
     @Rule(MarketFacts(trend='up', inflation='low'))
     def rule_1(self):
         print("Правило 1: прогноз – зміцнення валюти")
@@ -16,7 +14,7 @@ class FxRuleEngine(KnowledgeEngine):
 
     @Rule(MarketFacts(rate_diff='high'))
     def rule_3(self):
-        print("Правило 3: велика різниця ставок → валюта зміцниться")
+        print("Правило 3: велика різниця ставок → валюта зміцнюється")
 
     @Rule(MarketFacts(oil_price='up'))
     def rule_4(self):
@@ -46,9 +44,8 @@ class FxRuleEngine(KnowledgeEngine):
     def rule_10(self):
         print("Правило 10: ріст експорту → валюта зміцнюється")
 
-
-def run_rules(example_facts: dict):
+def run_rules(facts: dict):
     engine = FxRuleEngine()
     engine.reset()
-    engine.declare(MarketFacts(**example_facts))
+    engine.declare(MarketFacts(**facts))
     engine.run()

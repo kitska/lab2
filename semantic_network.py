@@ -2,12 +2,10 @@ import networkx as nx
 
 def build_semantic_network():
     G = nx.DiGraph()
-    
     nodes = ["USD", "EUR", "GBP", "Inflation", "Interest Rate",
              "GDP", "Risk", "Oil Price", "Exports", "Market Trend",
              "Economic Indicator", "Political Stability", "Stocks", "Commodities"]
     G.add_nodes_from(nodes)
-
     edges = [
         ("Inflation", "USD", "affects"),
         ("Inflation", "Economic Indicator", "is_a"),
@@ -22,10 +20,8 @@ def build_semantic_network():
         ("Stocks", "Market Trend", "correlates"),
         ("Commodities", "Forex", "correlates")
     ]
-    
     for src, tgt, label in edges:
         G.add_edge(src, tgt, relation=label)
-    
     return G
 
 def show_network(G):
