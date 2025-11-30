@@ -2,12 +2,10 @@ from rules import run_rules
 from semantic_network import build_semantic_network, show_network, analyze_indicator
 from net import train_model, predict_rate
 
-# 1) Семантична мережа
 print("\n=== 1) Семантична мережа ===")
 G = build_semantic_network()
 show_network(G)
 
-# 2) Продукційні правила
 print("\n=== 2) Правила ===")
 facts = {
     "trend": "up",
@@ -23,13 +21,11 @@ facts = {
 }
 run_rules(facts)
 
-# Демонстрація додаткового використання семантичної мережі
 print("\n=== Додаткові приклади семантичної мережі ===")
 analyze_indicator(G, "Inflation", "high")
 analyze_indicator(G, "GDP", "up")
 analyze_indicator(G, "Oil Price", "down")
 
-# 3) Нейронна мережа
 print("\n=== 3) Нейронна мережа ===")
 model = train_model()
 input_data = [0.2, 0.8, 0.6]
